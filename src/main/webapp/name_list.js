@@ -1,17 +1,38 @@
 
 // Main Javascript File
-
+function htmlSafe(data) {
+    return data.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
+}
+console.log("hello");
 function updateTable() {
     // Here's where your code is going to go.
     // Define a URL
-    var url = "api/name_list_get";
+    var url = "api/namelistget";
 
 // Start a web call. Specify:
 // URL
 // Data to pass (nothing in this case)
 // Function to call when we are done
-    $.getJSON(url, null, updateTable());
+    $.getJSON(url, null, function(json_result) {
+            for (let i = 0; i < json_result.length; i++) {
+                // Print the first name
+                console.log(json_result[i].first);
+                $('#datatable tbody').append('<tr><td>'
+                    +htmlSave(json_result[i].id)
+                    +'</td><td>'
+                    +htmlSave(json_result[i].first)
+                    +'</td><td>'
+                    +htmlSave(json_result[i].last)
+                    +'</td></tr>'
+                    +htmlSave(json_result[i].email)
+                    +'</td><td>'
+                    +htmlSave(json_result[i].phone)
+                    +'</td><td>');
+            }
+            console.log("Done");
+        }
 
+    );
 // Any code after this runs IMMEDIATELY and we
 // do not wait for the JSON call to complete!
 

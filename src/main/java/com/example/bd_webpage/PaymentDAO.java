@@ -12,19 +12,19 @@ import java.util.logging.Logger;
 /**
  * Data Access Object for the Person table/class
  */
-public class PersonDAO {
-    private final static Logger log = Logger.getLogger(PersonDAO.class.getName());
+public class PaymentDAO {
+    private final static Logger log = Logger.getLogger(PaymentDAO.class.getName());
 
     /**
      * Get a list of the people in the database.
      * @return Returns a list of instances of the People class.
      */
-    public static List<Person> getPeople() {
-        log.log(Level.FINE, "Get people");
+    public static List<Payment> getPayment() {
+        log.log(Level.FINE, "Get payment");
 
         // Create an empty linked list to put the people we get from the
         // database into.
-        List<Person> list = new LinkedList<Person>();
+        List<Payment> list = new LinkedList<Payment>();
 
         // Declare our variables
         Connection conn = null;
@@ -38,7 +38,7 @@ public class PersonDAO {
 
             // This is a string that is our SQL query.
             // Update for all our fields
-            String sql = "select id, first, last, email, phone, birthday from Person";
+            String sql = "select CustomerId, PaymentiId, Amount, Date from Payment";
 
 
             // If you had parameters, it would look something like
@@ -58,18 +58,19 @@ public class PersonDAO {
                 // Create a new instance of the Person object.
                 // You'll need to define that somewhere. Just a simple class
                 // with getters and setters on the fields.
-                Person person = new Person();
+                Payment payment = new Payment();
 
                 // Get the data from the result set, and copy it to the Person
                 // object.
-                person.setId(rs.getInt("id"));
-                person.setFirst(rs.getString("first"));
-                person.setLast(rs.getString("last"));
+                payment.setCustomerId(rs.getInt("Customer id"));
+                payment.setPaymentId(rs.getInt("Payment id"));
+                payment.setAmount(rs.getString("Amount"));
+                payment.setDate(rs.getString("Date"));
                 /* FILL IN THE REST HERE */
 
 
                 // Add this person to the list so we can return it.
-                list.add(person);
+                list.add(payment);
             }
         } catch (SQLException se) {
             log.log(Level.SEVERE, "SQL Error", se );

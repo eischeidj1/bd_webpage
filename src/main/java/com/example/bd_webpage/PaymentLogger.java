@@ -10,16 +10,15 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "NameListGetServlet", value = "/api/name_list_get")
-public class logger extends HttpServlet {
-    private final static Logger log = Logger.getLogger(PersonDAO.class.getName());
 
+    @WebServlet(name = "PaymentGetServlet", value = "/PaymentGetServlet")
+    public class PaymentLogger extends HttpServlet {
 
-
+        private final static Logger log = Logger.getLogger(PaymentDAO.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.log(Level.FINE, "Get people servlet");
+        log.log(Level.FINE, "Get payment servlet");
 
         // Get setup up to output JSON text
         response.setContentType("text/plain");
@@ -29,4 +28,3 @@ public class logger extends HttpServlet {
         out.println("Hello");
     }
 }
-

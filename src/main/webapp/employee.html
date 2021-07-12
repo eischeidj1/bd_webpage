@@ -51,61 +51,16 @@
 <div class="container">
 
   <!-- Table title -->
-  <h1>Name List</h1>
+  <h1>Menu</h1>
+<ul >
+  <li><a href="name_list.html">Orders</a> </li>
+  <li><a href="payment.html">Payment</a></li>
+  <li><a href="product.html">Product</a></li>
+  <li><a href="time.html">Time</a></li>
+</ul>
 
-  <!-- Button to add a new data item -->
-  <button type="button" id="addItem" class="btn btn-primary">Add new item</button>
-
-  <!-- Table to hold our data -->
-  <table id="datatable" class="table table-hover">
-    <!-- Header Lines-->
-    <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-    </thead>
-    <!-- Data -->
-    <tbody>
-    <tr>
-      <td>No data</td>
-    </tr>
-    </tbody>
-  </table>
 </div>
 
-<!-- This is a hidden "pop up" window that we'll use to enter new data -->
-<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <!-- Window Title -->
-        <h4 class="modal-title">Update Name List</h4>
-        <!-- Close button -->
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Form -->
-        <form id="my-form" name="my-form">
-          <div class="form-group">
-            <label for="first">First Name:</label>
-            <input type="hidden" id="id" name="id" class="form-control"><br>
-            <input type="text" id="first" name="first" class="form-control"
-                   placeholder="First name"><br>
-            <input type="email" id="email" name="email" class="form-control"
-                   placeholder="Email address"><br>
-          </div>
-        </form>
-      </div>
-      <!-- Footer where we put our save/close buttons -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="saveChanges" type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <!-- Load JavaScript -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
