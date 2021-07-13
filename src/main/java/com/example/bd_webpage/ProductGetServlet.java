@@ -12,22 +12,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-@WebServlet(name = "PaymentGetServlet", value = "/api/PaymentGetServlet")
-public class PaymentGetServlet extends HttpServlet {
-    private final static Logger log = Logger.getLogger(PaymentGetServlet.class.getName());
+@WebServlet(name = "ProductGetServlet", value = "/api/ProductGetServlet")
+public class ProductGetServlet extends HttpServlet {
+    private final static Logger log = Logger.getLogger(ProductGetServlet.class.getName());
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.log(Level.INFO, "Get Payment");
+        log.log(Level.INFO, "Get Product");
 
         // Get setup up to output JSON text
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
         // Use our DAO to get a list of people
-        List<Payment> paymentList = PaymentDAO.getPayment();
+        List<Product> productList = ProductDAO.getProduct();
 
         Jsonb jsonb = JsonbBuilder.create();
-        String jsonString = jsonb.toJson(paymentList);
+        String jsonString = jsonb.toJson(productList);
 
         // Write out that string
         out.println(jsonString);

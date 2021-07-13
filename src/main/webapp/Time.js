@@ -7,7 +7,7 @@ console.log("hello");
 function updateTable() {
     // Here's where your code is going to go.
     // Define a URL
-    var url = "/api/PaymentGetServlet";
+    var url = "api/TimeGetServlet";
 
 // Start a web call. Specify:
 // URL
@@ -18,13 +18,15 @@ function updateTable() {
                 // Print the first name
                 console.log(json_result[i].first);
                 $('#datatable tbody').append('<tr><td>'
-                    +htmlSave(json_result[i].CustomerId)
+                    +htmlSave(json_result[i].TimeId)
                     +'</td><td>'
-                    +htmlSave(json_result[i].PaymentId)
-                    +'</td><td>'
-                    +htmlSave(json_result[i].Amount)
-                    +'</td></tr>'
                     +htmlSave(json_result[i].Date)
+                    +'</td><td>'
+                    +htmlSave(json_result[i].Month)
+                    +'</td></tr>'
+                    +htmlSave(json_result[i].Day)
+                    +'</td><td>'
+                    +htmlSave(json_result[i].Year)
                     +'</td><td>');
             }
             console.log("Done");

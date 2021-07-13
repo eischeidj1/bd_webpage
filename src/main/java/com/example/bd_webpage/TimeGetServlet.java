@@ -12,12 +12,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-@WebServlet(name = "PaymentGetServlet", value = "/api/PaymentGetServlet")
-public class PaymentGetServlet extends HttpServlet {
-    private final static Logger log = Logger.getLogger(PaymentGetServlet.class.getName());
+@WebServlet(name = "TimeGetServlet", value = "/api/TimeGetServlet")
+public class TimeGetServlet extends HttpServlet {
+    private final static Logger log = Logger.getLogger(TimeGetServlet.class.getName());
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.log(Level.INFO, "Get Payment");
+        log.log(Level.INFO, "Get Time");
 
         // Get setup up to output JSON text
         response.setContentType("application/json");
