@@ -8,6 +8,7 @@ public class Product {
     private int ProductId;
     private String Type;
     private String Color;
+    private String Size;
     private BigDecimal Cost;
 
 
@@ -22,6 +23,9 @@ public class Product {
 
     public BigDecimal getCost() { return Cost; }
     public void setCost(BigDecimal Cost) { this.Cost = Cost; }
+
+    public String getSize() { return Size; }
+    public void setSize(String Size) { this.Size = Size;}
 
 
     /* Add additional getters and setters for each field.

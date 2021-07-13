@@ -24,6 +24,8 @@ function updateTable() {
                     +'</td><td>'
                     +htmlSave(json_result[i].Color)
                     +'</td></tr>'
+                    +htmlSave(json_result[i].Size)
+                    +'</td></tr>'
                     +htmlSave(json_result[i].Cost)
                     +'</td><td>');
             }

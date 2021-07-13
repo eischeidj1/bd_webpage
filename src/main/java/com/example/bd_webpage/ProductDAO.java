@@ -65,6 +65,7 @@ public class ProductDAO {
                 product.setProductId(rs.getInt("Product ID"));
                 product.setType(rs.getString("Type"));
                 product.setColor(rs.getString("Color"));
+                product.setSize(rs.getString("Size"));
                 product.setCost(rs.getBigDecimal("Cost"));
 
                 /* FILL IN THE REST HERE */
