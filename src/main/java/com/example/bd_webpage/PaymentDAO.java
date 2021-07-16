@@ -38,7 +38,7 @@ public class PaymentDAO {
 
             // This is a string that is our SQL query.
             // Update for all our fields
-            String sql = "select CustomerId, PaymentiId, Amount, Date from Payment";
+            String sql = "select CustomerId, PaymentId, Amount, Date from Payment";
 
 
             // If you had parameters, it would look something like
@@ -62,11 +62,11 @@ public class PaymentDAO {
 
                 // Get the data from the result set, and copy it to the Person
                 // object.
-                payment.setCustomerId(rs.getInt("Customer id"));
-                payment.setPaymentId(rs.getInt("Payment id"));
+                payment.setCustomerId(rs.getInt("CustomerId"));
+                payment.setPaymentId(rs.getInt("PaymentId"));
                 payment.setAmount(rs.getString("Amount"));
                 payment.setDate(rs.getString("Date"));
-                /* FILL IN THE REST HERE */
+            /* FILL IN THE REST HERE */
 
 
                 // Add this person to the list so we can return it.

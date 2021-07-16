@@ -1,6 +1,7 @@
 
 // Main Javascript File
 function htmlSafe(data) {
+    console.log("data: "+data)
     return data.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
 }
 console.log("hello");
@@ -14,20 +15,22 @@ function updateTable() {
 // Data to pass (nothing in this case)
 // Function to call when we are done
     $.getJSON(url, null, function(json_result) {
-            for (let i = 0; i < json_result.length; i++) {
+        for (let i = 0; i < json_result.length; i++) {
                 // Print the first name
                 console.log(json_result[i].first);
                 $('#datatable tbody').append('<tr><td>'
-                    +htmlSave(json_result[i].id)
+                    +json_result[i].id
                     +'</td><td>'
-                    +htmlSave(json_result[i].first)
+                    +htmlSafe(json_result[i].first)
                     +'</td><td>'
-                    +htmlSave(json_result[i].last)
-                    +'</td></tr>'
-                    +htmlSave(json_result[i].email)
+                    +htmlSafe(json_result[i].last)
                     +'</td><td>'
-                    +htmlSave(json_result[i].phone)
-                    +'</td><td>');
+                    +htmlSafe(json_result[i].email)
+                    +'</td><td>'
+                    +htmlSafe(json_result[i].phone)
+                    +'</td><td>'
+                    +htmlSafe(json_result[i].birthday)
+                    +'</td><tr>');
             }
             console.log("Done");
         }

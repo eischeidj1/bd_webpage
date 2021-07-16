@@ -14,18 +14,18 @@ function updateTable() {
 // Data to pass (nothing in this case)
 // Function to call when we are done
     $.getJSON(url, null, function(json_result) {
-            for (let i = 0; i < json_result.length; i++) {
+        for (let i = 0; i < json_result.length; i++) {
                 // Print the first name
                 console.log(json_result[i].first);
                 $('#datatable tbody').append('<tr><td>'
-                    +htmlSave(json_result[i].CustomerId)
+                    +htmlSafe(json_result[i].CustomerId)
                     +'</td><td>'
-                    +htmlSave(json_result[i].PaymentId)
+                    +htmlSafe(json_result[i].PaymentId)
                     +'</td><td>'
-                    +htmlSave(json_result[i].Amount)
-                    +'</td></tr>'
-                    +htmlSave(json_result[i].Date)
-                    +'</td><td>');
+                    +json_result[i].Amount
+                    +'</td></td>'
+                    +json_result[i].Date
+                    +'</td><tr>');
             }
             console.log("Done");
         }
