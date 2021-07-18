@@ -19,7 +19,7 @@ function updateTable() {
             for (let i = 0; i < json_result.length; i++) {
                 // Print the first name
                 console.log(json_result[i].first);
-                $('#datatable tbody').append('<td><td>'
+                $('#datatable tbody').append('<tr><td>'
                     +json_result[i].timeId
                     +'</td><td>'
                     +htmlSafe(json_result[i].date)
