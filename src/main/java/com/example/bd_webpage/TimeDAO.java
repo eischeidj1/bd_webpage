@@ -62,10 +62,10 @@ public class TimeDAO {
 
                 // Get the data from the result set, and copy it to the Person
                 // object.
-                time.setTimeId(rs.getInt("Time ID"));
+                time.setTimeId(rs.getInt("TimeID"));
                 time.setDate(rs.getString("Date"));
-                time.setMonth(rs.getInt("Month"));
-                time.setDay(rs.getInt("Day"));
+                time.setMonth(rs.getString("Month"));
+                time.setDay(rs.getString("Day"));
                 time.setYear(rs.getInt("Year"));
                 /* FILL IN THE REST HERE */
 

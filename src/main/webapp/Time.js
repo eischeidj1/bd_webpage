@@ -1,6 +1,8 @@
 
 // Main Javascript File
 function htmlSafe(data) {
+    console.log("data: "+data)
+
     return data.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
 }
 console.log("hello");
@@ -17,17 +19,17 @@ function updateTable() {
             for (let i = 0; i < json_result.length; i++) {
                 // Print the first name
                 console.log(json_result[i].first);
-                $('#datatable tbody').append('<tr><td>'
-                    +htmlSave(json_result[i].TimeId)
+                $('#datatable tbody').append('<td><td>'
+                    +json_result[i].timeId
                     +'</td><td>'
-                    +htmlSave(json_result[i].Date)
+                    +htmlSafe(json_result[i].date)
                     +'</td><td>'
-                    +htmlSave(json_result[i].Month)
-                    +'</td></tr>'
-                    +htmlSave(json_result[i].Day)
+                    +htmlSafe(json_result[i].month)
+                    +'</td></td>'
+                    +htmlSafe(json_result[i].day)
                     +'</td><td>'
-                    +htmlSave(json_result[i].Year)
-                    +'</td><td>');
+                    +json_result[i].year
+                    +'</td><tr>');
             }
             console.log("Done");
         }

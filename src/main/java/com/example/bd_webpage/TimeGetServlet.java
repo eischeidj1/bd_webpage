@@ -24,10 +24,10 @@ public class TimeGetServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Use our DAO to get a list of people
-        List<Payment> paymentList = PaymentDAO.getPayment();
+        List<Time> timeList = TimeDAO.getTime();
 
         Jsonb jsonb = JsonbBuilder.create();
-        String jsonString = jsonb.toJson(paymentList);
+        String jsonString = jsonb.toJson(timeList);
 
         // Write out that string
         out.println(jsonString);

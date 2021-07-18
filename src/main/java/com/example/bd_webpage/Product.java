@@ -9,7 +9,7 @@ public class Product {
     private String Type;
     private String Color;
     private String Size;
-    private BigDecimal Cost;
+    private String Cost;
 
 
     public int getProductId() {return ProductId; }
@@ -21,11 +21,13 @@ public class Product {
     public String getColor() { return Color; }
     public void setColor(String Color) { this.Color = Color;}
 
-    public BigDecimal getCost() { return Cost; }
-    public void setCost(BigDecimal Cost) { this.Cost = Cost; }
-
     public String getSize() { return Size; }
     public void setSize(String Size) { this.Size = Size;}
+
+    public String getCost() { return Cost; }
+    public void setCost(String Cost) { this.Cost = Cost; }
+
+
 
 
     /* Add additional getters and setters for each field.

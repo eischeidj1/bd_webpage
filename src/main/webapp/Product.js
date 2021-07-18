@@ -1,13 +1,15 @@
 
 // Main Javascript File
 function htmlSafe(data) {
+    console.log("data: "+data)
+
     return data.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
 }
 console.log("hello");
 function updateTable() {
     // Here's where your code is going to go.
     // Define a URL
-    var url = "/api/ProductGetServlet";
+    var url = "api/ProductGetServlet";
 
 // Start a web call. Specify:
 // URL
@@ -18,16 +20,16 @@ function updateTable() {
                 // Print the first name
                 console.log(json_result[i].first);
                 $('#datatable tbody').append('<tr><td>'
-                    +htmlSave(json_result[i].ProductId)
+                    +json_result[i].productId
                     +'</td><td>'
-                    +htmlSave(json_result[i].Type)
+                    +htmlSafe(json_result[i].type)
                     +'</td><td>'
-                    +htmlSave(json_result[i].Color)
-                    +'</td></tr>'
-                    +htmlSave(json_result[i].Size)
-                    +'</td></tr>'
-                    +htmlSave(json_result[i].Cost)
-                    +'</td><td>');
+                    +htmlSafe(json_result[i].color)
+                    +'</td></td>'
+                    +htmlSafe(json_result[i].size)
+                    +'</td></td>'
+                    +htmlSafe(json_result[i].cost)
+                    +'</td><tr>');
             }
             console.log("Done");
         }

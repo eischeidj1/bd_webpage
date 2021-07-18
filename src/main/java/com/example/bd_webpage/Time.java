@@ -4,8 +4,8 @@ public class Time {
 
     private int TimeId;
     private String Date;
-    private int Month;
-    private int Day;
+    private String Month;
+    private String Day;
     private int Year;
 
     public int getTimeId() {return TimeId; }
@@ -14,11 +14,11 @@ public class Time {
     public String getDate() { return Date; }
     public void setDate(String Date) { this.Date = Date; }
 
-    public int getMonth() { return Month; }
-    public void setMonth(int Month) { this.Month = Month;}
+    public String getMonth() { return Month; }
+    public void setMonth(String Month) { this.Month = Month;}
 
-    public int getDay() { return Day; }
-    public void setDay(int Day) { this.Day = Day; }
+    public String getDay() { return Day; }
+    public void setDay(String Day) { this.Day = Day; }
 
     public int getYear() { return Year; }
     public void setYear(int Year) { this.Year = Year; }

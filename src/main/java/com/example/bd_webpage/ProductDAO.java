@@ -38,7 +38,7 @@ public class ProductDAO {
 
             // This is a string that is our SQL query.
             // Update for all our fields
-            String sql = "select ProductId, Type, Color, Cost from Product";
+            String sql = "select ProductId, Type, Color, Size, Cost from Product";
 
 
             // If you had parameters, it would look something like
@@ -62,11 +62,11 @@ public class ProductDAO {
 
                 // Get the data from the result set, and copy it to the Person
                 // object.
-                product.setProductId(rs.getInt("Product ID"));
+                product.setProductId(rs.getInt("ProductID"));
                 product.setType(rs.getString("Type"));
                 product.setColor(rs.getString("Color"));
                 product.setSize(rs.getString("Size"));
-                product.setCost(rs.getBigDecimal("Cost"));
+                product.setCost(rs.getString("Cost"));
 
                 /* FILL IN THE REST HERE */
 
