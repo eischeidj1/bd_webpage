@@ -6,10 +6,12 @@ function htmlSafe(data) {
     return data.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;");
 }
 console.log("hello");
+
 function updateTable() {
     // Here's where your code is going to go.
     // Define a URL
     var url = "api/ProductGetServlet";
+
 
 // Start a web call. Specify:
 // URL
@@ -25,9 +27,9 @@ function updateTable() {
                     +htmlSafe(json_result[i].type)
                     +'</td><td>'
                     +htmlSafe(json_result[i].color)
-                    +'</td></td>'
+                    +'</td><td>'
                     +htmlSafe(json_result[i].size)
-                    +'</td></td>'
+                    +'</td><td>'
                     +htmlSafe(json_result[i].cost)
                     +'</td><tr>');
             }

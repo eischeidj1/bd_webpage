@@ -80,7 +80,7 @@
 </div>
 
 <!-- This is a hidden "pop up" window that we'll use to enter new data -->
-<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="namelistwindow">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -91,23 +91,58 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <!-- Form -->
-        <form id="my-form" name="my-form">
+
+        <form id="my-form" name="my-form" class="main-form needs-validation" novalidate>
           <div class="form-group">
-            <label for="first">First Name:</label>
+            <label for="ID">ID:</label>
             <input type="hidden" id="id" name="id" class="form-control"><br>
-            <input type="text" id="first" name="first" class="form-control"
-                   placeholder="First name"><br>
-            <input type="email" id="email" name="email" class="form-control"
-                   placeholder="Email address"><br>
+            <input type="text" id="namelistid" name="namelistid" class="form-control" required
+                    placeholder="ID"><br>
+            <label for="first">First Name:</label>
+            <input type="text" id="first" name="first" class="form-control" required
+                   placeholder="First Name"><br>
+
+            <label for="Last">Last Name:</label>
+            <input type="text" id="last" name="last" class="form-control" required
+                   placeholder="Last Name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required
+                   placeholder="Email Address"><br>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" class="form-control" required
+                   placeholder="Phone"><br>
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday" class="form-control" required
+                   placeholder="Birthday"><br>
           </div>
         </form>
+
       </div>
+
       <!-- Footer where we put our save/close buttons -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="saveChanges" type="button" class="btn btn-primary">Save changes</button>
+        <button id="saveChanges" type="button" class="btn btn-primary" onclick="validateFunction()">Save changes</button>
+        <button type="submit">Submit</button>
+<script>
+  // Function to validate
+  function validateFunction(event) {
+    // Get the field
+    let v1 = $('#validateMe').val();
+
+    // Create the regular expression
+    let reg = /^[A-Za-z]{1,10}$/;
+
+    // Test the regular expression to see if there is a match
+    if (reg.test(v1)) {
+      $('#result').text("Ok");
+    } else {
+      $('#result').text("Bad");
+    }}
+</script>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -121,5 +156,17 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 <script src ="name_list.js"></script>
+<script>
+  var form =document.querySelector('.needs-validation');
+
+  form.addEventListener('submit', function(event){
+    if (form.checkValidity() === false){
+      event.preventDefault();
+      event.stopPropagation()
+    }
+    form.classList.add('was-validated');
+  })
+
+</script>
 </body>
 </html>
