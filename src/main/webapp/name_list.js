@@ -70,16 +70,30 @@ function showDialogAdd() {
     // Show the hidden dialog
     $('#namelistwindow').modal('show');
     $('#first').removeClass("is-invalid");
-    $('#first').addClass("is-valid");
-
-    /* etc. */
-
-// This is an INVALID field
     $('#first').removeClass("is-valid");
-    $('#first').addClass("is-invalid");
-}
 
+}
+function saveChangesFunction(event) {
+    console.log("changes saved");
+    // Get the field
+    let first = $('#first').val();
+
+    // Create the regular expression
+    let reg = /^[A-Za-z]{1,10}$/;
+    let isValid = true;
+    // Test the regular expression to see if there is a match
+    if (reg.test(first)) {
+        $('#first').removeClass("is-invalid");
+        $('#first').addClass("is-valid");
+    } else {
+        $('#first').addClass("is-invalid");
+        $('#first').removeClass("is-valid");
+        isValid = false;
+    }
+}
 // There's a button in the form with the ID "addItem"
 // Associate the function showDialogAdd with it.
 let addItemButton = $('#addItem');
 addItemButton.on("click", showDialogAdd);
+let saveChanges = $('#saveChanges');
+saveChanges.on("click", saveChangesFunction);
