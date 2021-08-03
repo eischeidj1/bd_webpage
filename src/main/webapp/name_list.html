@@ -97,7 +97,7 @@
 
         <form id="my-form" name="my-form" class="main-form needs-validation" novalidate>
           <div class="form-group">
-            <label for="ID">ID:</label>
+            <label for="id">ID:</label>
             <input type="hidden" id="id" name="id" class="form-control"><br>
             <input type="text" id="namelistid" name="namelistid" class="form-control" required
                     placeholder="ID"><br>
@@ -105,7 +105,7 @@
             <input type="text" id="first" name="first" class="form-control" required
                    placeholder="First Name"><br>
 
-            <label for="Last">Last Name:</label>
+            <label for="last">Last Name:</label>
             <input type="text" id="last" name="last" class="form-control" required
                    placeholder="Last Name"><br>
             <label for="email">Email:</label>
@@ -141,17 +141,6 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 <script src ="name_list.js"></script>
-<script>
-  var form =document.querySelector('.needs-validation');
 
-  form.addEventListener('submit', function(event){
-    if (form.checkValidity() === false){
-      event.preventDefault();
-      event.stopPropagation()
-    }
-    form.classList.add('was-validated');
-  })
-
-</script>
 </body>
 </html>
