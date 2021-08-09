@@ -65,7 +65,7 @@ function showDialogAdd() {
     // Otherwise we'll keep values from when we last
     // opened or hit edit.
     // I'm getting it started, you can finish.
-    $('#id').val("");
+
     $('#first').val("");
     $('#last').val("");
     $('#email').val("");
@@ -74,8 +74,7 @@ function showDialogAdd() {
 
     // Show the hidden dialog
     $('#namelistwindow').modal('show');
-    $('#namelistid').removeClass("is-invalid");
-    $('#namelistid').removeClass("is-valid");
+
     $('#first').removeClass("is-invalid");
     $('#first').removeClass("is-valid");
     $('#last').removeClass("is-invalid");
@@ -90,22 +89,12 @@ function showDialogAdd() {
 function saveChangesFunction(event) {
     console.log("changes saved");
     // Get the field
-    let id = $('#namelistid').val();
-    let regId = /^[0-9]+$/;
-    let IDisValid = true;
-    if (regId.test(id)){
-        $('#namelistid').removeClass("is-invalid");
-        $('#namelistid').addClass("is-valid");
-    } else {
-        $('#namelistid').addClass("is-invalid");
-        $('#namelistid').removeClass("is-valid");
-        IDisValid = false;
-    }
+
+    let isValid = true;
     let first = $('#first').val();
 
     // Create the regular expression
     let reg = /^[A-Za-z]{1,10}$/;
-    let isValid = true;
     // Test the regular expression to see if there is a match
     if (reg.test(first)) {
         $('#first').removeClass("is-invalid");
@@ -117,47 +106,58 @@ function saveChangesFunction(event) {
     }
     let last = $('#last').val();
     let regLast =  /^[A-Za-z]{1,10}$/;
-    let lastValid = true;
     if (regLast.test(last)){
         $('#last').removeClass("is-invalid");
         $('#last').addClass("is-valid");
     } else{
         $('#last').addClass("is-invalid");
         $('#last').removeClass("is-valid");
-        lastValid= false;
+        isValid= false;
     }
     let email = $('#email').val();
     let regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let regValid = true;
     if (regEmail.test(email)){
         $('#email').removeClass("is-invalid");
         $('#email').addClass("is-valid");
     } else{
         $('#email').addClass("is-invalid");
         $('#email').removeClass("is-valid");
-        regValid = false;
+        isValid = false;
     }
     let phone = $('#phone').val();
     let regPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-    let phoneValid = true;
     if (regPhone.test(phone)){
         $('#phone').removeClass("is-invalid");
         $('#phone').addClass("is-valid");
     } else {
         $('#phone').addClass("is-invalid");
         $('#phone').removeClass("is-valid");
-        phoneValid = false;
+        isValid = false;
     }
     let birthday = $('#birthday').val();
     let regBirthday = /^0[1-9]|1[0-2]\/0[1-9]|1\d|2\d|3[01]\/19|20\d{2}$/;
-    let birthdayValid = true;
     if (regBirthday.test(birthday)){
         $('#birthday').removeClass("is-invalid");
         $('#birthday').addClass("is-valid");
     } else {
         $('#birthday').addClass("is-invalid");
         $('#birthday').removeClass("is-valid");
-        birthdayValid = false;
+        isValid = false;
+    }
+    if (isValid) {
+        console.log("Valid form");
+        let my_data = {first: first, last: last, email: email, phone: phone, birthday: birthday}
+        // Code to submit your form will go here.
+        $.ajax({
+            type: 'POST',
+            url: "/api/namelistgetupdate",
+            data: JSON.stringify(my_data),
+            success: function(dataFromServer) {
+                console.log(dataFromServer);
+            },
+            contentType: "application/json",
+            dataType: 'text' // Could be JSON or whatever too
+        });
     }
 }
 // There's a button in the form with the ID "addItem"
